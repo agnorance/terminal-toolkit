@@ -32,7 +32,7 @@ error_symbol = "[✗](bold fg:#ff6b6b)"
 
 [localip]
 ssh_only = false
-format = '[📟 $localipv4](fg:#a0a9cb bg:#1d2230)'
+format = '[󰩠 $localipv4](fg:#a0a9cb bg:#1d2230)'
 disabled = false
 
 [os]
@@ -116,4 +116,4 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
