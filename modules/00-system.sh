@@ -98,27 +98,6 @@ else
         wl-clipboard
 fi
 
-# Install tldr (optional tool, profile-aware)
-if [ "$PROFILE" != "kali" ]; then
-    echo "📚 Installing tldr..."
-    if command -v tldr &> /dev/null; then
-        echo "✅ tldr already installed"
-    else
-        # Try apt first
-        if apt-cache show tldr &> /dev/null 2>&1; then
-            sudo apt install -y tldr
-        else
-            # Use pipx for externally-managed Python environments
-            if ! command -v pipx &> /dev/null; then
-                sudo apt install -y pipx
-            fi
-            pipx ensurepath
-            pipx install tldr
-        fi
-        echo "✅ tldr installed"
-    fi
-fi
-
 # Install duf (better df) - check if available first
 if [ "$PROFILE" != "kali" ]; then
     echo "💾 Installing duf..."
