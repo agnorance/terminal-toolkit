@@ -9,7 +9,7 @@ A modular, portable terminal setup for Debian/Ubuntu/Kali systems (including WSL
 - **Portable**: Keep everything in git - clone and go
 - **Smart Restore**: Auto-detects existing configs on new machines
 - **Modern Tools**: eza, zoxide, fzf, ripgrep, bat, and more
-- **Security Tools**: impacket, kerbrute, NetExec, SecLists
+- **Security Tools**: impacket, kerbrute, NetExec
 - **Beautiful Shell**: zsh + oh-my-zsh + Starship prompt
 - **Nerd Fonts**: JetBrainsMono with icons and symbols
 
@@ -124,7 +124,6 @@ terminal-toolkit/
 ### 90-security-tools.sh
 - **impacket**: Network protocol tools
 - **kerbrute**: Kerberos user enumeration
-- **SecLists**: Comprehensive wordlists
 - **NetExec (nxc)**: Network execution tool
 
 ## Usage

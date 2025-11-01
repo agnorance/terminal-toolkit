@@ -12,7 +12,7 @@ if [ "$PROFILE" = "kali" ]; then
     echo "   Verifying installation..."
 
     # Just verify key tools exist
-    TOOLS=("impacket:python3 -c 'import impacket'" "kerbrute:command -v kerbrute" "seclists:test -d /usr/share/seclists" "nxc:command -v nxc")
+    TOOLS=("impacket:python3 -c 'import impacket'" "kerbrute:command -v kerbrute" "nxc:command -v nxc")
 
     ALL_PRESENT=true
     for tool_check in "${TOOLS[@]}"; do
@@ -56,7 +56,8 @@ else
     # Use pipx for externally-managed Python environments
     if ! command -v pipx &> /dev/null; then
         sudo apt install -y pipx
-        pipx ensurepath
+        pipx ensurepath > /dev/null 2>&1
+        export PATH="$HOME/.local/bin:$PATH"
     fi
     pipx install impacket
     echo "✅ impacket installed"
@@ -74,26 +75,6 @@ else
     echo "✅ kerbrute installed"
 fi
 
-# Install/clone SecLists
-echo "📚 Installing SecLists..."
-if [ -d "/usr/share/seclists" ]; then
-    echo "✅ SecLists already installed"
-    echo "   Updating SecLists..."
-    sudo git -C /usr/share/seclists pull 2>/dev/null || echo "   ⚠️  Update failed (repo might have local changes)"
-else
-    sudo git clone https://github.com/danielmiessler/SecLists.git /usr/share/seclists
-
-    # Set proper permissions
-    sudo chown -R root:root /usr/share/seclists
-    sudo chmod -R a-w /usr/share/seclists
-
-    # Create common symlink
-    sudo mkdir -p /usr/share/wordlists
-    sudo ln -sf /usr/share/seclists /usr/share/wordlists/seclists
-
-    echo "✅ SecLists installed at /usr/share/seclists"
-fi
-
 # Install NetExec (nxc)
 echo "🌐 Installing NetExec (nxc)..."
 if command -v nxc &> /dev/null; then
@@ -103,7 +84,8 @@ else
     if ! command -v pipx &> /dev/null; then
         echo "   Installing pipx..."
         sudo apt install -y pipx
-        pipx ensurepath
+        pipx ensurepath > /dev/null 2>&1
+        export PATH="$HOME/.local/bin:$PATH"
     fi
 
     # Check if rust is installed (required for building nxc)
@@ -125,5 +107,6 @@ echo ""
 echo "📝 Installed tools:"
 echo "   • impacket    - Network protocol manipulation"
 echo "   • kerbrute    - Kerberos user enumeration"
-echo "   • SecLists    - Security wordlists (/usr/share/seclists)"
 echo "   • nxc         - Network execution tool (NetExec)"
+echo ""
+echo "💡 Note: Restart your shell or run 'exec zsh' to ensure pipx tools are in PATH"
