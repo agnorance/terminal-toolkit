@@ -11,6 +11,7 @@ A modular, portable terminal setup for Debian/Ubuntu/Kali systems (including WSL
 - **Modern Tools**: eza, zoxide, fzf, ripgrep, bat, and more
 - **Security Tools**: impacket, kerbrute, NetExec, SecLists
 - **Beautiful Shell**: zsh + oh-my-zsh + Starship prompt
+- **Nerd Fonts**: JetBrainsMono with icons and symbols
 
 ## Profiles
 
@@ -68,6 +69,7 @@ terminal-toolkit/
 ├── modules/              # Modular installation scripts
 │   ├── 00-system.sh     # System updates + essential packages
 │   ├── 10-shell.sh      # zsh + oh-my-zsh + plugins
+│   ├── 15-fonts.sh      # Nerd Fonts (JetBrainsMono)
 │   ├── 20-starship.sh   # Starship prompt
 │   ├── 30-modern-tools.sh # eza, zoxide, fzf, ripgrep, bat, etc.
 │   └── 90-security-tools.sh # impacket, kerbrute, nxc, seclists
@@ -99,6 +101,12 @@ terminal-toolkit/
 - zsh-autosuggestions plugin
 - zsh-syntax-highlighting plugin
 - Sets zsh as default shell
+
+### 15-fonts.sh
+- JetBrainsMono Nerd Font (system-wide)
+- Installed to `/usr/local/share/fonts/nerd-fonts`
+- Set as default monospace font
+- Includes icons and symbols for better terminal UI
 
 ### 20-starship.sh
 - Starship prompt (cross-shell)

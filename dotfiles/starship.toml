@@ -41,8 +41,8 @@ format = "[$symbol]($style) "
 
 [os.symbols]
 Kali = "   "
-Debian = "  "
-Ubuntu = "  "
+Debian = "  "
+Ubuntu = "  "
 Linux = "  "
 Windows = "  "
 

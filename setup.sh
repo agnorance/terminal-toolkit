@@ -81,31 +81,33 @@ fi
 echo "📦 Available modules:"
 echo "  [1] System essentials (required)"
 echo "  [2] Shell (zsh + oh-my-zsh)"
-echo "  [3] Starship prompt"
-echo "  [4] Modern CLI tools (eza, zoxide, fzf, etc.)"
-echo "  [5] Security tools (impacket, kerbrute, nxc, seclists)"
+echo "  [3] Fonts (JetBrainsMono Nerd Font)"
+echo "  [4] Starship prompt"
+echo "  [5] Modern CLI tools (eza, zoxide, fzf, etc.)"
+echo "  [6] Security tools (impacket, kerbrute, nxc, seclists)"
 echo ""
 read -p "Install all modules? (y/n) [y]: " install_all
 install_all=${install_all:-y}
 
 if [[ "$install_all" =~ ^[Yy]$ ]]; then
-    MODULES=("00-system.sh" "10-shell.sh" "20-starship.sh" "30-modern-tools.sh" "90-security-tools.sh")
+    MODULES=("00-system.sh" "10-shell.sh" "15-fonts.sh" "20-starship.sh" "30-modern-tools.sh" "90-security-tools.sh")
 else
     echo ""
     echo "Select modules to install (e.g., '1 2 3' or 'all'):"
     read -p "Modules: " module_choice
 
     if [[ "$module_choice" == "all" ]]; then
-        MODULES=("00-system.sh" "10-shell.sh" "20-starship.sh" "30-modern-tools.sh" "90-security-tools.sh")
+        MODULES=("00-system.sh" "10-shell.sh" "15-fonts.sh" "20-starship.sh" "30-modern-tools.sh" "90-security-tools.sh")
     else
         MODULES=()
         for num in $module_choice; do
             case $num in
                 1) MODULES+=("00-system.sh") ;;
                 2) MODULES+=("10-shell.sh") ;;
-                3) MODULES+=("20-starship.sh") ;;
-                4) MODULES+=("30-modern-tools.sh") ;;
-                5) MODULES+=("90-security-tools.sh") ;;
+                3) MODULES+=("15-fonts.sh") ;;
+                4) MODULES+=("20-starship.sh") ;;
+                5) MODULES+=("30-modern-tools.sh") ;;
+                6) MODULES+=("90-security-tools.sh") ;;
                 *) echo "⚠️  Unknown module: $num" ;;
             esac
         done
