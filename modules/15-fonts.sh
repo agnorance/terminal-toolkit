@@ -53,6 +53,12 @@ else
     fi
 fi
 
+# Ensure fontconfig is installed (without updating package lists to avoid broken repos)
+if ! command -v fc-cache &> /dev/null; then
+    echo "📦 Installing fontconfig..."
+    sudo apt-get install -y fontconfig
+fi
+
 # Set JetBrainsMono as default monospace font system-wide
 echo "⚙️  Setting JetBrainsMono as default monospace font..."
 
