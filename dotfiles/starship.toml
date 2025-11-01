@@ -40,9 +40,10 @@ disabled = false
 format = "[$symbol]($style) "
 
 [os.symbols]
-Debian = " 🐧 "
-Ubuntu = " 🐧 "
-Linux = " 🐧 "
+Kali = "   "
+Debian = "  "
+Ubuntu = "  "
+Linux = "  "
 Windows = "  "
 
 [hostname]
@@ -64,7 +65,7 @@ truncation_symbol = "…/"
 "Pictures" = " "
 
 [git_branch]
-symbol = ""
+symbol = ""
 style = "bg:#394260"
 format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
@@ -92,7 +93,7 @@ style = "bg:#212736"
 format = '[[ $symbol ($virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
 
 [nodejs]
-symbol = ""
+symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
@@ -107,7 +108,7 @@ style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [php]
-symbol = ""
+symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
