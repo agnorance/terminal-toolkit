@@ -53,13 +53,6 @@ else
     fi
 fi
 
-# Ensure fontconfig is installed
-if ! command -v fc-cache &> /dev/null; then
-    echo "📦 Installing fontconfig..."
-    sudo apt-get update -qq
-    sudo apt-get install -y fontconfig
-fi
-
 # Set JetBrainsMono as default monospace font system-wide
 echo "⚙️  Setting JetBrainsMono as default monospace font..."
 
@@ -107,3 +100,4 @@ echo "📝 To apply in your terminal:"
 echo "   - Most terminals will auto-detect the new default"
 echo "   - Or manually set to 'JetBrainsMono Nerd Font Mono'"
 echo "   - Recommended size: 10-12pt"
+
