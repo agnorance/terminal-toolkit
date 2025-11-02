@@ -21,9 +21,9 @@ $time\
 
 right_format = """
 [](fg:#1d2230)\
-[ ](bg:#1d2230)\
+[ ]()\
 $localip\
-[ ](bg:#1d2230)\
+[ ]()\
 [](fg:#1d2230)"""
 
 [character]
@@ -32,7 +32,7 @@ error_symbol = "[✗](bold fg:#ff6b6b)"
 
 [localip]
 ssh_only = false
-format = '[󰩠 $localipv4](fg:#a0a9cb bg:#1d2230)'
+format = '[󰩠 $localipv4](fg:#a0a9cb)'
 disabled = false
 
 [os]
@@ -75,7 +75,7 @@ ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+format = '[[($all_status$ahead_behind )](fg:#769ff0)]($style)'
 ignore_submodules = true
 
 [docker_context]
@@ -89,28 +89,28 @@ disabled = false
 
 [python]
 symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
+style = ""
+format = '[[ $symbol ($virtualenv) ](fg:#769ff0 )]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+style = ""
+format = '[[ $symbol ($version) ](fg:#769ff0 )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+style = ""
+format = '[[ $symbol ($version) ](fg:#769ff0 )]($style)'
 
 [golang]
 symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+style = ""
+format = '[[ $symbol ($version) ](fg:#769ff0 )]($style)'
 
 [php]
 symbol = ""
-style = "bg:#212736"
-format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+style = ""
+format = '[[ $symbol ($version) ](fg:#769ff0 )]($style)'
 
 [time]
 disabled = false
