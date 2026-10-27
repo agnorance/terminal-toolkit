@@ -1,6 +1,6 @@
 # Terminal Toolkit
 
-A modular, portable terminal setup for Debian/Ubuntu/Kali systems (including WSL). Quickly bootstrap a new machine with your favorite tools and configurations.
+A modular, portable terminal setup for Debian/Ubuntu/Kali systems (including WSL) and Windows (PowerShell 7). Quickly bootstrap a new machine with your favorite tools and configurations.
 
 ## Features
 
@@ -61,11 +61,37 @@ chmod +x setup.sh
 exec zsh
 ```
 
+### Windows Setup
+
+The same tools on Windows, in PowerShell 7 with winget:
+
+```powershell
+git clone <your-repo-url> terminal-toolkit
+cd terminal-toolkit
+
+# Installs PowerShell 7, eza, zoxide, fzf, ripgrep, fd, bat, Starship,
+# JetBrainsMono Nerd Font and PSFzf, then installs the profile
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
+
+# Also make PowerShell 7 the default shell for SSH logins (run as administrator)
+powershell -ExecutionPolicy Bypass -File .\setup.ps1 -SshShell
+```
+
+Running it again skips installed packages. A changed `$PROFILE` is backed up as
+`Microsoft.PowerShell_profile.ps1.bak-<timestamp>`, and an existing `~\.config\starship.toml`
+is kept. Open a new `pwsh` window afterwards and set the terminal font to
+"JetBrainsMono Nerd Font" so the icons show.
+
+The profile gives the same aliases, shortcuts and `mkcd` as `.zshrc` (see below).
+On Windows, `ls` prints eza's text instead of PowerShell objects: use `Get-ChildItem`
+(`gci`) in pipelines such as `gci | Where-Object Length -gt 1MB`.
+
 ## Structure
 
 ```
 terminal-toolkit/
 ├── setup.sh              # Main orchestrator script
+├── setup.ps1             # Windows setup (winget + PowerShell profile)
 ├── modules/              # Modular installation scripts
 │   ├── 00-system.sh     # System updates + essential packages
 │   ├── 10-shell.sh      # zsh + oh-my-zsh + plugins
@@ -80,6 +106,7 @@ terminal-toolkit/
 │   ├── .zshrc
 │   ├── .gitconfig
 │   ├── starship.toml
+│   ├── Microsoft.PowerShell_profile.ps1 # Windows twin of .zshrc
 │   └── ...
 └── README.md             # This file
 ```
@@ -167,15 +194,17 @@ After setup, these aliases will be available:
 - `ls` → `eza --icons` - Better directory listing
 - `ll` → `eza -la --icons` - Detailed listing
 - `lt` → `eza --tree --icons` - Tree view
-- `cat` → `batcat` - Syntax highlighted cat
-- `fd` → `fdfind` - Better file finder
+- `cat` → `batcat` - Syntax highlighted cat (`bat` on Windows)
+- `fd` → `fdfind` - Better file finder (already `fd` on Windows)
 - `cd` → `z` - Smart cd with zoxide
 
 ## Keyboard Shortcuts
 
 - `Ctrl+R` - fzf fuzzy history search
 - `Ctrl+T` - fzf file search
-- `Ctrl+O` - Accept autosuggestion
+- `Ctrl+O` - Accept autosuggestion (`→` on Windows, `F2` toggles a suggestion list)
+- `Tab` - Completion menu (Windows)
+- `↑` / `↓` - Search history for what is already typed (Windows)
 
 ## Custom Functions
 

@@ -43,7 +43,7 @@ Kali = "   "
 Debian = "  "
 Ubuntu = "  "
 Linux = "  "
-Windows = "  "
+Windows = " 󰨡 "
 
 [hostname]
 ssh_only = true
